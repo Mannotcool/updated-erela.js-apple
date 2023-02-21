@@ -254,21 +254,22 @@ function Titulo(title){
         } else {
             axios.get(url).then(res => {
                 let $ = cheerio.load(res.data),
-                    aTitleDivs = $(".songs-list-row__song-name").toArray(),
-                    aArtistDivs = $(".songs-list-row__link").toArray(),
-                    aPlaylist = [],
-                    i,
-                    j = 0;
-                
-                for (i = 0; i < aTitleDivs.length; i++) {
-                    aPlaylist.push({
-                        uri: aArtistDivs[j].children[1].parent.attribs.href,
-                        album: aArtistDivs[j + 2].firstChild.data,
-                        artist: aArtistDivs[j].children[1].data,
-                        title: `${aTitleDivs[i].children[1].data} ${aArtistDivs[j].children[1].data}`
-                    });
-                    j += 3;
-                }
+						aTitleDivs = $('div[data-testid=track-title][dir=auto].songs-list-row__song-name').toArray(),
+						aArtistDivs = $("div[data-testid=track-column-secondary].songs-list__col--secondary > .songs-list__song-link-wrapper").toArray(),
+						aAlbumDivs = $("div[data-testid=track-column-tertiary].songs-list__col--tertiary > .songs-list__song-link-wrapper > span > a").toArray(),
+						aPlaylist = [],
+						i,
+						j = 0;
+						
+					for (i = 0; i < aTitleDivs.length; i++) {
+						
+						aPlaylist.push({
+							album: aAlbumDivs[j].children[0].data,
+							artist: aArtistDivs[j].children[1].children[0].children[0].data,
+							title: aTitleDivs[i].children[0].data
+						});
+						j += 1;
+					}
 
                 resolve(aPlaylist);
             }).catch(err => {
