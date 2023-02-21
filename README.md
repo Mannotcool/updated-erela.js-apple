@@ -1,18 +1,8 @@
-<div align = "center">
-<a href="https://www.npmjs.com/package/erela.js-apple">
-<img src="https://img.shields.io/npm/dw/erela.js-apple?color=CC3534&logo=npm&style=for-the-badge" alt="Downloads">
-</a>
-
-<a href="https://www.npmjs.com/package/erela.js-apple">
-<img src="https://img.shields.io/npm/v/erela.js-apple?color=red&label=Version&logo=npm&style=for-the-badge" alt="Npm version">
-</a>
-<br>
-
-
 <hr>
 </div>
-Apple Music plugin for Erela.JS
+Working Apple Music plugin for Erela.JS
 
+Note: Erela.JS has lost support, however many people still rely on the library in order to create their own Discord Bots. I have forked and updated the scrapping script in order to have Apple Music playlists work with Erela JS again. 
 
 ## What is this ?
 This a plugin for Erela.JS to allow the use of AppleMusic URL's, it uses direct URL's being tracks, albums, and playlists and gets the YouTube equivalent.  
